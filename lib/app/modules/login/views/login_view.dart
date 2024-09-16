@@ -32,7 +32,7 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ],
                 ),
-              ),
+              ), 
             ),
             Card(
               shape: RoundedRectangleBorder(
