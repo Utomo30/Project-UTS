@@ -1,23 +1,29 @@
 import 'package:comic_app/app/helpers/const.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/detail_komik_controller.dart';
 
 class DetailKomikView extends GetView<DetailKomikController> {
   const DetailKomikView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(controller.komik.title),
+        title: Text(
+          controller.komik.title,
+          style: TextStyle(
+            fontSize: 24, // Ukuran font yang lebih besar
+            fontWeight: FontWeight.bold, // Berat font bold
+            fontFamily: 'YourCustomFont', // Ganti dengan nama font kustom Anda
+          ),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             onPressed: () {
-              // Add functionality for settings (e.g., dark mode, orientation, etc.)
+              // Tambahkan fungsionalitas untuk pengaturan
             },
           ),
         ],
@@ -33,7 +39,7 @@ class DetailKomikView extends GetView<DetailKomikController> {
                     child: Obx(
                       () => Text(
                         'Chapter ${controller.chapter}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -42,7 +48,7 @@ class DetailKomikView extends GetView<DetailKomikController> {
                   ),
                   ListView.builder(
                     shrinkWrap: true,
-                    physics: ScrollPhysics(),
+                    physics: const ScrollPhysics(),
                     itemCount: panelList.length,
                     itemBuilder: (context, index) => Image.asset(
                       panelList[index],
@@ -50,7 +56,7 @@ class DetailKomikView extends GetView<DetailKomikController> {
                     ),
                   ),
 
-                  // Navigation Buttons for Previous and Next chapters
+                  // Navigasi untuk chapter sebelumnya dan selanjutnya
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -60,18 +66,19 @@ class DetailKomikView extends GetView<DetailKomikController> {
                           onPressed: () {
                             if (controller.chapter > 0) controller.chapter -= 1;
                           },
-                          icon: Icon(Icons.arrow_back),
-                          label: Text('Previous'),
+                          icon: const Icon(Icons.arrow_back),
+                          label: const Text('Previous'),
                         ),
                         Obx(() => Text("${controller.chapter}")),
                         ElevatedButton.icon(
                           onPressed: () {
                             if (controller.chapter <
-                                controller.komik.totalChapters)
+                                controller.komik.totalChapters) {
                               controller.chapter += 1;
+                            }
                           },
-                          icon: Icon(Icons.arrow_forward),
-                          label: Text('Next'),
+                          icon: const Icon(Icons.arrow_forward),
+                          label: const Text('Next'),
                         ),
                       ],
                     ),
