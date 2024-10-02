@@ -12,7 +12,7 @@ class AdminFormView extends GetView<AdminFormController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comic Form'),
+        title: const Text('Comic Form'),
         centerTitle: true,
       ),
       floatingActionButton: Obx(
@@ -21,7 +21,7 @@ class AdminFormView extends GetView<AdminFormController> {
             ? FloatingActionButton(onPressed: () {
                 controller.isEditMode.value = true;
               })
-            : SizedBox(),
+            : const SizedBox(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,7 +46,7 @@ class AdminFormView extends GetView<AdminFormController> {
                   },
                   controller: controller.titleC,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Subtitle Input
                 TextFormField(
                   decoration: InputDecoration(
@@ -64,7 +64,7 @@ class AdminFormView extends GetView<AdminFormController> {
                   },
                   controller: controller.subtitleC,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Author Input
                 TextFormField(
                   decoration: InputDecoration(
@@ -82,7 +82,7 @@ class AdminFormView extends GetView<AdminFormController> {
                   },
                   controller: controller.authorC,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Total Chapters Input
                 TextFormField(
                   decoration: InputDecoration(
@@ -104,7 +104,7 @@ class AdminFormView extends GetView<AdminFormController> {
                   },
                   controller: controller.totalChapterC,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Genres (Dropdown or Multi-Select)
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -149,7 +149,7 @@ class AdminFormView extends GetView<AdminFormController> {
                         .toList(),
                   ),
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Rating Input
                 TextFormField(
                   decoration: InputDecoration(
@@ -159,7 +159,8 @@ class AdminFormView extends GetView<AdminFormController> {
                       color: getTheme(context).primaryColor,
                     ), // Icon added
                   ),
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter a rating';
@@ -175,7 +176,7 @@ class AdminFormView extends GetView<AdminFormController> {
                   },
                   controller: controller.ratingC,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Asset Image URL Input
                 TextFormField(
                   decoration: InputDecoration(
@@ -193,22 +194,22 @@ class AdminFormView extends GetView<AdminFormController> {
                   },
                   controller: controller.assetImageUrlC,
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Is Premium Checkbox
                 CheckboxListTile(
-                  title: Text('Premium Content'),
+                  title: const Text('Premium Content'),
                   value: controller.isPremium.value,
                   onChanged: (value) {
                     controller.isPremium.value = value!;
                   },
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // Submit Button
                 ElevatedButton(
                   onPressed: () {
                     controller.saveOrUpdateKomik();
                   },
-                  child: Text('Submit'),
+                  child: const Text('Submit'),
                 ),
               ],
             )),
