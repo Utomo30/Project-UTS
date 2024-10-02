@@ -59,13 +59,17 @@ class HomeView extends GetView<HomeController> {
                           color: getTheme(context).primaryColor,
                         ),
                   ),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.notifications_outlined,
-                      color: getTheme(context).primaryColor,
-                    ),
-                  ),
+                  trailing: Obx(() => IconButton(
+                        onPressed: () {
+                          controller.toggleNotification();
+                        },
+                        icon: Icon(
+                          controller.isNotificationActive.value
+                              ? Icons.notifications
+                              : Icons.notifications_outlined,
+                          color: getTheme(context).primaryColor,
+                        ),
+                      )),
                 ),
 
                 // Search bar
@@ -189,4 +193,3 @@ class HomeView extends GetView<HomeController> {
     );
   }
 }
-

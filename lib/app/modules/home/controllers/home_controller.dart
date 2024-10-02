@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+  var isNotificationActive = false.obs;
+
+  void toggleNotification() {
+    isNotificationActive.value = !isNotificationActive.value;
+  }
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   String getTimeCategory() {
