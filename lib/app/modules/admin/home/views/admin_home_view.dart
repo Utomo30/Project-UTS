@@ -15,15 +15,15 @@ class AdminHomeView extends GetView<AdminHomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: controller.scaffoldKey,
-      drawer: HomeDrawer(),
+      drawer: const HomeDrawer(),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           onPressed: () {
             Get.toNamed(Routes.ADMIN_FORM);
           }),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +61,7 @@ class AdminHomeView extends GetView<AdminHomeController> {
 
                 // Search bar
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
+                  margin: const EdgeInsets.symmetric(vertical: 20),
                   child: TextField(
                     decoration: InputDecoration(
                         hintText: "Search comic",
@@ -72,15 +72,16 @@ class AdminHomeView extends GetView<AdminHomeController> {
                         filled: true,
                         fillColor:
                             getTheme(context).colorScheme.secondaryContainer,
-                        prefixIcon: Icon(Icons.search),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16)),
+                        prefixIcon: const Icon(Icons.search),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16)),
                   ),
                 ),
 
                 // Komik Card
                 ListView.builder(
                   shrinkWrap: true,
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   itemCount: dummyKomiks.length,
                   itemBuilder: (context, index) {
                     return KomikCard(
