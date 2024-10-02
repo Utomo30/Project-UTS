@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 class KomikDetail extends StatelessWidget {
   final KomikModel komik;
 
-  KomikDetail({
+  const KomikDetail({
     super.key,
     required this.komik,
   });
@@ -23,48 +23,74 @@ class KomikDetail extends StatelessWidget {
           // Title
           Text(
             komik.title,
-            style: getTheme(context).textTheme.titleLarge,
+            style: TextStyle(
+              fontSize: 24, // Ukuran font yang lebih besar
+              fontWeight: FontWeight.bold, // Berat font bold
+              color: Theme.of(context).colorScheme.primary, // Warna sesuai tema
+            ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
 
           // Subtitle
           Text(
             komik.subtitle,
-            style: getTheme(context).textTheme.titleMedium,
+            style: TextStyle(
+              fontSize: 18, // Ukuran font subtitle
+              color:
+                  Theme.of(context).colorScheme.secondary, // Warna sesuai tema
+            ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           // Genres
           Text(
             komik.getGenresString(),
+            style: TextStyle(
+              fontSize: 16,
+              fontStyle: FontStyle.italic, // Italic untuk gaya
+              color: Colors.grey[700], // Warna yang lebih soft
+            ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
 
           // Author
           Text(
             'Author: ${komik.author}',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[800], // Warna author
+            ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           // Chapter List
           Text(
             'Chapters',
-            style: getTheme(context).textTheme.titleMedium,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold, // Bold untuk judul chapter
+              color: Theme.of(context).colorScheme.primary, // Warna sesuai tema
+            ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Expanded(
             child: ListView(
               shrinkWrap: true,
               children: List.generate(
                 komik.totalChapters, // Number of chapters
-                (index) => ListTile(
-                  leading: Icon(Icons.document_scanner),
-                  title: Text('Chapter ${komik.totalChapters - index}'),
-                  onTap: () {
-                    // Handle chapter tap
-                    Get.toNamed(Routes.DETAIL_KOMIK,
-                        arguments: [komik, komik.totalChapters - index]);
-                  },
+                (index) => Card(
+                  // Menggunakan Card untuk chapter
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 4), // Margin antar chapter
+                  child: ListTile(
+                    leading: const Icon(Icons.document_scanner),
+                    title: Text('Chapter ${komik.totalChapters - index}'),
+                    onTap: () {
+                      // Handle chapter tap
+                      Get.toNamed(Routes.DETAIL_KOMIK,
+                          arguments: [komik, komik.totalChapters - index]);
+                    },
+                  ),
                 ),
               ),
             ),
