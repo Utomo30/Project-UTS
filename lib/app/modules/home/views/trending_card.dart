@@ -8,13 +8,14 @@ import 'package:get/get.dart';
 class TrendingCard extends GetView<HomeController> {
   final KomikModel komik;
 
-  TrendingCard({
+  const TrendingCard({
+    super.key,
     required this.komik,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 150,
       child: InkWell(
         onTap: () => controller.openDetail(context, komik),
@@ -25,7 +26,8 @@ class TrendingCard extends GetView<HomeController> {
             children: [
               // Cover Image
               ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(12)),
                 child: Stack(
                   children: [
                     AspectRatio(
@@ -34,7 +36,8 @@ class TrendingCard extends GetView<HomeController> {
                         komik.assetImageUrl,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return Center(child: Text('Image not available'));
+                          return const Center(
+                              child: Text('Image not available'));
                         },
                       ),
                     ),
@@ -44,7 +47,7 @@ class TrendingCard extends GetView<HomeController> {
                         width: 32,
                         decoration: BoxDecoration(
                           color: getTheme(context).colorScheme.secondary,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(12),
                             topRight: Radius.circular(4),
                             bottomLeft: Radius.circular(4),
