@@ -1,8 +1,11 @@
+// lib/app/modules/home/views/drawer.dart
+
 import 'package:comic_app/app/helpers/const.dart';
 import 'package:comic_app/app/helpers/themes.dart';
 import 'package:comic_app/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'about_view.dart'; // Tambahkan import ini
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({super.key});
@@ -81,7 +84,7 @@ class HomeDrawer extends StatelessWidget {
                     leading: const Icon(Icons.info),
                     title: const Text('About'),
                     onTap: () {
-                      // Handle about tap
+                      Get.to(AboutView()); // Navigasi ke AboutView
                     },
                   ),
                 ],
