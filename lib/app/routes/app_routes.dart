@@ -8,6 +8,7 @@ abstract class Routes {
   static const DETAIL_KOMIK = _Paths.DETAIL_KOMIK;
   static const ADMIN_HOME = _Paths.ADMIN + _Paths.HOME;
   static const ADMIN_FORM = _Paths.ADMIN + _Paths.FORM;
+  static const ABOUT = _Paths.ABOUT; // Tambahkan rute untuk About
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const DETAIL_KOMIK = '/detail-komik';
   static const ADMIN = '/admin';
   static const FORM = '/form';
+  static const ABOUT = '/about'; // Tambahkan path untuk About
 }
