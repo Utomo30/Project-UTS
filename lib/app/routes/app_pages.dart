@@ -7,6 +7,7 @@ import '../modules/admin/home/views/admin_home_view.dart';
 import '../modules/detail_komik/bindings/detail_komik_binding.dart';
 import '../modules/detail_komik/views/detail_komik_view.dart';
 import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/about_view.dart'; // Tambahkan import ini
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
@@ -50,6 +51,10 @@ class AppPages {
           binding: AdminFormBinding(),
         ),
       ],
+    ),
+    GetPage(
+      name: _Paths.ABOUT,
+      page: () => AboutView(),
     ),
   ];
 }
