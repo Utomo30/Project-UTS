@@ -65,19 +65,19 @@ class HomeDrawer extends StatelessWidget {
                       // Handle profile tap
                     },
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.settings),
-                    title: const Text('Settings'),
-                    onTap: () {
-                      // Handle settings tap
-                    },
-                  ),
                   const Divider(), // Adding a divider for better separation
                   ListTile(
                     leading: const Icon(Icons.help),
                     title: const Text('Help'),
                     onTap: () {
                       // Handle help tap
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text('Settings'),
+                    onTap: () {
+                      Get.toNamed('/settings');
                     },
                   ),
                   ListTile(

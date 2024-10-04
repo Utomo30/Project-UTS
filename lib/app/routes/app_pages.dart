@@ -11,6 +11,7 @@ import '../modules/home/views/about_view.dart'; // Tambahkan import ini
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/settings/views/settings_view.dart';
 
 part 'app_routes.dart';
 
@@ -55,6 +56,10 @@ class AppPages {
     GetPage(
       name: _Paths.ABOUT,
       page: () => AboutView(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS,
+      page: () => SettingsView(),
     ),
   ];
 }
