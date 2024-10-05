@@ -9,7 +9,8 @@ abstract class Routes {
   static const ADMIN_HOME = _Paths.ADMIN + _Paths.HOME;
   static const ADMIN_FORM = _Paths.ADMIN + _Paths.FORM;
   static const ABOUT = _Paths.ABOUT; // Tambahkan rute untuk About
- static const SETTINGS = _Paths.SETTINGS;
+  static const SETTINGS = _Paths.SETTINGS;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const FORM = '/form';
   static const ABOUT = '/about'; // Tambahkan path untuk About
   static const SETTINGS = '/settings'; // Tambahkan path untuk Settings
+  static const PROFILE = '/profile';
 }

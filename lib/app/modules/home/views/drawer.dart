@@ -62,6 +62,7 @@ class HomeDrawer extends StatelessWidget {
                     leading: const Icon(Icons.person),
                     title: const Text('Profile'),
                     onTap: () {
+                      Get.toNamed('/profile');
                       // Handle profile tap
                     },
                   ),
